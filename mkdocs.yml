@@ -39,9 +39,6 @@ plugins:
       blog_dir: .
       post_date_format: long
       post_url_date_format: yyyy/MM/dd
-      draft: false
-      draft_on_serve: true
-      draft_if_future_date: true
       categories_allowed:
         - Home Automation
         - Home Lab
