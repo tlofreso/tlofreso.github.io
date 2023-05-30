@@ -1,0 +1,59 @@
+# Project Information
+site_name: Tony's Blog
+site_url: https://tlofreso.github.io
+site_author: Tony Lofreso
+site_description: >-
+  My Blog Site
+
+# Repository
+repo_url: https://github.com/tlofreso/tlofreso.github.io
+
+theme:
+  name: material
+  theme:
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+  features:
+    - navigation.sections
+plugins:
+  - blog:
+      blog_dir: .
+      post_date_format: long
+      post_url_date_format: yyyy/MM/dd
+      draft: false
+      draft_on_serve: true
+      draft_if_future_date: true
+      categories_allowed:
+        - Home Automation
+        - Home Lab
+        - Maker
+        - Boardgames
+nav:
+  - Blog:
+      - index.md
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
