@@ -1,6 +1,5 @@
 ---
-draft: true
-date: 2023-05-18
+date: 2025-08-18
 authors:
   - me
 ---

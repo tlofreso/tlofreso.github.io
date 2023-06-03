@@ -37,6 +37,8 @@ theme:
 plugins:
   - blog:
       blog_dir: .
+      draft: false
+      draft_on_serve: true
       post_date_format: long
       post_url_date_format: yyyy/MM/dd
       categories_allowed:
