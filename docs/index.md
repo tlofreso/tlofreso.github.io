@@ -1,7 +1,3 @@
-<figure markdown>
-  ![banner](assets/banner-small.png){ width="300" }
-  <figcaption></figcaption>
-</figure>
 
 
 
