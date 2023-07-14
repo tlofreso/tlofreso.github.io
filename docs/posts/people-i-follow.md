@@ -11,3 +11,6 @@ authors:
  - Jeff Geerling
  - Corey Schaefer
  - Kirk Byers
+
+# Good Blogs
+ - https://fev.al/
