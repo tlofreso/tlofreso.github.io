@@ -23,4 +23,4 @@ MkDocs has a command line utility: `mkdocs gh-deploy` specifically built for the
 www.tlofreso.com
 ```
 
-Until next time!
+Success!
