@@ -15,7 +15,7 @@ in hopes of getting in the door of your employer. Anyways, it was high time I ro
 My decision was a toss-up between raw linux on a Pi, or OPNsense on a mini PC. I opted for the latter... 
 Mostly due to the popularity around OPNsense / PFsense and some of the simplicity gains there. But also, Pi's 
 are still hard to come by. A mini PC with more interfaces sounded great for a firewall, so I ordered a [Qotom Q750G5](https://www.amazon.com/Advanced-Firewall-Qotom-Mini-PC-Q750G5/dp/B0B28XWWHK){:target="_blank"}
-
+<!-- more -->
 !!! note
 
     Annectodally, if I were to pursue a Pi, I'd do something along these lines:  
