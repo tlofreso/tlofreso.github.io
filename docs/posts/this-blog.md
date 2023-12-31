@@ -15,7 +15,7 @@ I don't have much to share on how this site is hosted. I follow [this](https://s
 ![GH Pages](../assets/posts/this-blog/gh-pages-dark.png#only-dark)
 ![GH Pages](../assets/posts/this-blog/gh-pages-light.png#only-light)
 
-Basically, I'd configure the domain name `www.tlofreso.com` at `<my repo>/settings/pages --> Custom Domain`. This worked, until I would push an update the site... then my custom domain settings would disappear. GitHub requires a `CNAME` file, which existed, but in the wrong location.
+Basically, I'd configure the domain name `www.tlofreso.com` at `<my repo>/settings/pages --> Custom Domain`. This worked, until I would push an update to the site... then my custom domain settings would disappear. GitHub requires a `CNAME` file, which existed, but in the wrong location.
 
 MkDocs has a command line utility: `mkdocs gh-deploy` specifically built for the purpose of deploying your docs to GitHub Pages ( Great! ). The utility creates, and pushes a `gh-pages` branch to your repo, which is ultimately what serves the site. The `CNAME` file I'd created at project root did not exist in the `gh-pages` branch. I moved it to my `docs_dir` per [the documentation](https://www.mkdocs.org/user-guide/deploying-your-docs/#custom-domains){:target="blank"}.
 
