@@ -6,4 +6,4 @@ authors:
 ---
 
 # This Blog
-a post about this blog, and how it's built. Maybe also what it used to be. Here's a change.
+a post about this blog, and how it's built. Maybe also what it used to be. Here's a change. Here's another change.
