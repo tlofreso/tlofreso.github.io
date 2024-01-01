@@ -1,6 +1,6 @@
 ---
-draft: true
-date: 2023-07-18
+draft: false
+date: 2024-01-01
 authors:
   - me
 categories:
@@ -15,12 +15,14 @@ in hopes of getting in the door of your employer. Anyways, it was high time I ro
 My decision was a toss-up between raw linux on a Pi, or OPNsense on a mini PC. I opted for the latter... 
 Mostly due to the popularity around OPNsense / PFsense and some of the simplicity gains there. But also, Pi's 
 were hard to come by. A mini PC with more interfaces sounded great for a firewall, so I ordered a [Qotom Q750G5](https://www.amazon.com/Advanced-Firewall-Qotom-Mini-PC-Q750G5/dp/B0B28XWWHK){:target="blank"}
-<!-- more -->
-!!! note
 
+<!-- more -->
+
+!!! note
     Annectodally, if I were to pursue a Pi, I'd do something along these lines:  
-     * [Jeff Geerling - Pi Simple Router](https://www.jeffgeerling.com/blog/2021/setting-raspberry-pi-2-network-interfaces-very-simple-router)  
-     * [Tall Paul Tech - Pi Router and Firewall](https://youtu.be/7riJkp5q1-M)
+
+    - [Jeff Geerling - Pi Simple Router](https://www.jeffgeerling.com/blog/2021/setting-raspberry-pi-2-network-interfaces-very-simple-router)  
+    - [Tall Paul Tech - Pi Router and Firewall](https://youtu.be/7riJkp5q1-M)
 
 ## The Hardware
 A new firewall was the genesis of my home network upgrades, which ultimately included new wifi, servers, and switches.
@@ -65,7 +67,7 @@ Man, what a [great project](https://pi-hole.net){:target="blank"}. And the level
 ### NetBox
 I run this in production at work, and the maintainer is no stranger to any Network Engineer. Many of us have Jermey Stretch's [cheatsheets](https://packetlife.net/library/cheat-sheets/){:target="blank"} hanging at our desks.
 
-NetBox was originally built as an IP Address Management (IPAM) application. It's now grown into a full fledged DCIM platform. At home, I use it to document IP addresses on my network, but I also model every connected device with the [Device Type Library](https://github.com/netbox-community/devicetype-library){:target="blank"}. Once all devices are added, you can create cables, and generate cable traces so you know exactly where things are:
+NetBox was originally built as an IP Address Management (IPAM) application for Digital Ocean. It's now grown into a fully fledged DCIM platform. At home, I use it to document IP addresses on my network, but I also model every connected device with the [Device Type Library](https://github.com/netbox-community/devicetype-library){:target="blank"}. Once all devices are added, you can create cables, and generate cable traces so you know exactly where things are:
 
 ![cable trace](../assets/posts/home-network/cable-trace.svg)
 
@@ -76,17 +78,11 @@ I enjoy collecting data on the thing around me. Whether it's Internet health, or
 <figure markdown>
   ![IAQ Summary Grafana](../assets/posts/home-network/iaq-summary-grafana-dark.png#only-dark)
   ![IAQ Summary Grafana](../assets/posts/home-network/iaq-summary-grafana-light.png#only-light)
-  <figcaption>Dashboard of Air Quality with an EPA baseline</figcaption>
+  <figcaption>Dashboard of air quality around me with a baseline from the EPA</figcaption>
 </figure>
 
-### Home Assistant
+### Other
+What's listed above comprises the primary network components. I'm running other software, like Home Assistant, and some open source Software Defined Radio applications, though I consider them seperate from my Home Network.
 
-### SDR
+🎉 -Happy New Year- 🎉
 
-
-
-Other changes include:
-
-- expanding the LAN from /24 to /22
-- adding pihole for dns
-- setting up wireguard
