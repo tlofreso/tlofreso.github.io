@@ -35,6 +35,8 @@ theme:
 
   features:
     - navigation.sections
+    - content.code.copy
+
 plugins:
   - blog:
       blog_dir: .
@@ -47,6 +49,7 @@ plugins:
         - Home Lab
         - Maker
         - Boardgames
+        - Linux
 nav:
   - Blog:
       - index.md
@@ -57,3 +60,7 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
