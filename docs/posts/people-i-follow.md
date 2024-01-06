@@ -9,7 +9,7 @@ authors:
 This list ended up being way longer than I anticipated. If I wrote about someone here, there's a good chance I've sponsored them in some way. Via Patreon, or buying merch, or books they've authored, etc... I would advocate that you do the same for interesting people that in some way, provide value to you. <!-- more --> All are simply ordered alphabetically.
 
 ## Bert Hubert
-I came across Bert's site via a post to Hackernews that linked to this article: [Reverse Engineering the source code of the BioNTech/Pfizer SARS-CoV-2 Vaccine](https://berthub.eu/articles/posts/reverse-engineering-source-code-of-the-biontech-pfizer-vaccine/){:target="blank"}. Nowhere have I found a more concise and compelling depiction of how mRNA can be used to help humans fight pathogens. In '22, he wrote a fascinating little tool that beeps everytime google tracks you ([demo here](https://x.com/bert_hu_bert/status/1561466204602220544?s=20){:target="blank"}). More recently, he's spent time deep diving on [climate change](https://berthub.eu/articles/posts/co2-global-warming-sensitivity/#summarising){:target="blank"}.
+I came across Bert's site via a post to Hackernews that linked to this article: [Reverse Engineering the source code of the BioNTech/Pfizer SARS-CoV-2 Vaccine](https://berthub.eu/articles/posts/reverse-engineering-source-code-of-the-biontech-pfizer-vaccine/){:target="blank"}. Nowhere have I found a more concise and compelling depiction of how mRNA can be used to help humans fight pathogens. In '22, he wrote a fascinating little tool that beeps everytime google tracks you ([demo here](https://x.com/bert_hu_bert/status/1561466204602220544?s=20){:target="blank"}). More recently, he's spent time deep diving on [climate change](https://berthub.eu/articles/posts/co2-global-warming-sensitivity){:target="blank"}.
 
 [:fontawesome-brands-x-twitter:](https://twitter.com/bert_hu_bert){:target="blank"} - 
 [:material-github:](https://github.com/berthubert){:target="blank"} - 
@@ -132,17 +132,3 @@ The mind behind [Wait But Why](https://waitbutwhy.com){:target="blank"}. Long fo
      - Science
      - Stick Figure Art
 
-
-
-# Good Blogs
- - https://fev.al/
- - Calm Code
-
-
-
-
-[:fontawesome-brands-x-twitter:](){:target="blank"} - 
-[:simple-youtube:](){:target="blank"} - 
-[:material-github:](){:target="blank"} - 
-[:material-web:](){:target="blank"} - 
-[:material-patreon:](){:target="blank"}
