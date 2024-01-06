@@ -74,7 +74,7 @@ NetBox was originally built as an IP Address Management (IPAM) application for D
 You can also setup panels on the homepage with quick links to services, or RSS feeds, etc... Check out more on the public demo site [here](https://demo.netbox.dev/){:target="blank"}!
 
 ### Prometheus / Grafana
-I enjoy collecting data on the thing around me. Whether it's Internet health, or Air quality, or the planes flying overhead... collecting data is fun! and visualizing it is even more fun. Having Grafana available to plot anything I want is great.
+I enjoy collecting data on the things around me. Whether it's Internet health, or Air quality, or the planes flying overhead... collecting data is fun! and visualizing it is even more fun. Having Grafana available to plot anything I want is great.
 <figure markdown>
   ![IAQ Summary Grafana](../assets/posts/home-network/iaq-summary-grafana-dark.png#only-dark)
   ![IAQ Summary Grafana](../assets/posts/home-network/iaq-summary-grafana-light.png#only-light)
