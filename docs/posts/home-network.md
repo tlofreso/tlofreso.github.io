@@ -10,7 +10,7 @@ icon: material/rocket
 
 # My Home Network
 In the past, I've used a variety of vendor provided hardware to work at the edge of my home network. 
-They're all to eager to give away [free gear](https://www.juniper.net/us/en/forms/free-gear.html){:target="blank"} 
+They're all too eager to give away [free gear](https://www.juniper.net/us/en/forms/free-gear.html){:target="blank"} 
 in hopes of getting in the door of your employer. Anyways, it was high time I rolled my own HW.  
 
 My decision was a toss-up between raw linux on a Pi, or OPNsense on a mini PC. I opted for the latter... 
