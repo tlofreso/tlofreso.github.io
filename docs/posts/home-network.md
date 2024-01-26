@@ -5,6 +5,7 @@ authors:
   - me
 categories:
   - Home Lab
+icon: material/rocket
 ---
 
 # My Home Network

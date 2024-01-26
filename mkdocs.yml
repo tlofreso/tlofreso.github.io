@@ -38,6 +38,15 @@ theme:
     - content.code.copy
 
 plugins:
+  - social:
+      debug: false
+      debug_color: yellow
+      cards_layout: custom
+      cards_layout_options:
+        background_color: "#0FF1CE8F"
+        background_image: layouts/moon.png
+        color: "#DE9151"
+        font_family: Caveat
   - blog:
       blog_dir: .
       draft: false
@@ -51,6 +60,7 @@ plugins:
         - Boardgames
         - Linux
         - ChatGPT
+
 nav:
   - Blog:
       - index.md
