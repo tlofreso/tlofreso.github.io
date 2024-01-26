@@ -5,29 +5,29 @@ layers:
       image: layouts/moon.png
       color: "#0000008F"
 
-  # Black Mesa Logo
+  # Testing Logo
   - size: { width: 96, height: 96 }
     offset: { x: 64, y: 460 }
     icon:
-      value: material/black-mesa
-      color: "#FDD835"
+      value: material/rocket
+      color: "#dd361c"
 
-    # Black Mesa name
+    # Testing name
   - size: { width: 320, height: 42 }
     offset: { x: 186, y: 470 }
     typography:
-      content: Black Mesa
-      color: "#FDD835"
+      content: Testing
+      color: "#dd361c"
       font:
         family: Inter
         style: Bold
 
-  # Black Mesa subtitle
+  # Testing subtitle
   - size: { width: 320, height: 30 }
     offset: { x: 186, y: 510 }
     typography:
-      content: Research Facility
-      color: "#FDD835"
+      content: Social Cards
+      color: "#dd361c"
       font:
         family: Inter
         style: Thin
@@ -39,7 +39,59 @@ layers:
     offset: { x: 800, y: 0 }
     icon:
       value: "{{ page.meta.get('icon', 'material/black-mesa') }}"
-      color: "#FDD83533"
+      color: "#dd361c33"
+
+# ----
+
+  # Page tags
+  - size: { width: 320, height: 30 }
+    offset: { x: 700, y: 470 }
+    typography:
+      content: >-
+        {%- if page.meta.tags -%}
+          {{ page.meta.tags | join(", ") }}
+        {%- endif -%}
+      color: "#dd361c"
+      align: start
+      font:
+        family: Inter
+        style: Medium
+
+  # Page tags icon
+  - size: { width: 32, height: 32 }
+    offset: { x: 656, y: 470 }
+    icon:
+      value: >-
+        {%- if page.meta.tags -%}
+          material/tag-text-outline
+        {%- endif -%}
+      color: "#dd361c"
+
+# ---
+
+  # Page Date
+  - size: { width: 320, height: 30 }
+    offset: { x: 700, y: 510 }
+    typography:
+      content: >-
+        {%- if page.meta.date -%}
+          {{ page.meta.date.strftime('%b %-d, %Y') }}
+        {%- endif -%}
+      color: "#dd361c"
+      align: start
+      font:
+        family: Inter
+        style: Medium
+
+      # Page date icon
+  - size: { width: 32, height: 32 }
+    offset: { x: 656, y: 510 }
+    icon:
+      value: >-
+        {%- if page.meta.date -%}
+          material/calendar-clock
+        {%- endif -%}
+      color: "#dd361c"
 
 # ----
 
@@ -49,7 +101,7 @@ layers:
     typography:
       content: "{{ page.title }}"
       align: end bottom
-      color: white
+      color: "#dd361c"
       line:
         amount: 3
         height: 1.25
@@ -61,4 +113,4 @@ layers:
   - size: { width: 3, height: 230 }
     offset: { x: 1080, y: 400 }
     background:
-      color: "#FDD835"
+      color: "#dd361c"
