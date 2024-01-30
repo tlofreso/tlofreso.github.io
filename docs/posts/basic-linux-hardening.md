@@ -8,7 +8,7 @@ categories:
 ---
 
 # Basic Linux Server Setup & Hardening
-Here are initial steps I perform on any fresh Linux install. My prefered distro is Debian, so anyting below is within that context.
+Here are initial steps I perform on any fresh Linux install. My preferred distro is Debian, so anything below is within that context.
 
 <!-- more -->
 
