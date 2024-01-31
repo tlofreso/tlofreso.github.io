@@ -1,6 +1,6 @@
 ---
-draft: true
-date: 2024-01-27
+draft: false
+date: 2024-01-30
 authors:
   - me
 categories:
@@ -12,7 +12,7 @@ categories:
 This year, I've had fun finding ways to use OpenAI tooling in everyday life. For most folks, this means interacting with ChatGPT through the app, or in a web browser at [https://chat.openai.com](https://chat.openai.com){target=blank}. For me, it's been learning how to effectively use the tools programmatically. One of those tools, is  [Whisper](https://openai.com/research/whisper){target=blank}. <!-- more --> Whisper will take an audio file (up to 25MB) and transcribe the audio into text. Contained here, is how I use Whisper, with other tooling, to convert voice memos I've recorded in iOS to text, then subsequently summarize the text into meeting minutes.
 
 ## Tech Stack
-For this workflow, I use Dropbox as short-term storage, GitHub actions to run all the tasks, and Open AI's Whisper / GPT-4 models to do the actual work. The sequence of events looks something like this:  
+For this workflow, I use Dropbox as short-term storage, GitHub actions to run all the tasks, and Open AI's Whisper / GPT-4 models to do the actual work. The sequence of events looks something like this _(click for larger image)_:  
 
 [![Sequence Diagram Dark]][Sequence Diagram Dark]
 [Sequence Diagram Dark]: ../assets/posts/speech-to-text/diagram-dark.svg#only-dark
@@ -115,13 +115,43 @@ def transcribe_audio(file, prompt=None):
 ```
 
 ### GitHub Actions
-GH Action content here.
+I like GitHub quite a bit. Public repos get access to some great tooling like [Dependabot](https://github.blog/2023-01-12-a-smarter-quieter-dependabot/){target=blank}, and up to 2,000 minutes / month for GitHub Action Runners. I have a goal this year to use GitHub Actions more.
 
-## Enhancing Things
+The action below runs on demand (with `worflow_dispatch`) or every day at 5PM _`schedule` uses [UTC time](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule){target=blank}_. The [`setup-python`](https://github.com/marketplace/actions/setup-python){target=blank} action is pretty slick as it takes advantage of GitHub's [Hosted tool cache](https://github.com/actions/setup-python/blob/main/docs/advanced-usage.md#hosted-tool-cache){target=blank} feature. This improves the total runtime of your jobs by caching the full dev environment instead of downloading/installing for each run.
+
+```yaml
+name: Speech to Text Runner
+run-name: Transcribe audio file to text
+on:
+  schedule:
+      - cron: '0 22 * * *'
+  workflow_dispatch:
+env:
+  DROPBOX_APP_KEY: ${{ secrets.DROPBOX_APP_KEY }}
+  DROPBOX_APP_SECRET: ${{ secrets.DROPBOX_APP_SECRET }}
+  DROPBOX_REFRESH_TOKEN: ${{ secrets.DROPBOX_REFRESH_TOKEN }}
+  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+jobs:
+  Audio-Transcriber:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - run: pip install -r requirements.txt
+      - name: Run Main
+        run: python main.py
+```
+
+## Enhancing
 I quickly realized that support for larger audio files was going to be important for my use case. I also wanted to try GPT-4's hand at generating meeting notes for the transcripts.
 
 ### Adding Support for Larger Files
-By default, Whisper supports files up to 25MB in size. I've found that 40 minutes is a good cutoff to stay under this limit when using the voice memos app in iOS. OpenAI has some guidance for [Longer inputs](https://platform.openai.com/docs/guides/speech-to-text/longer-inputs){target=blank}. They recommend [PyDub](https://github.com/jiaaro/pydub){target=blank} to chunk the audio.(1) This also recommend [Prompting](https://platform.openai.com/docs/guides/speech-to-text/prompting){target=blank} Whisper:
+By default, Whisper supports files up to 25MB in size. I've found that 40 minutes is a good cutoff to stay under this limit when using the voice memos app in iOS. OpenAI has some guidance for [Longer inputs](https://platform.openai.com/docs/guides/speech-to-text/longer-inputs){target=blank}. They recommend [PyDub](https://github.com/jiaaro/pydub){target=blank} to chunk the audio.(1) They also recommend [Prompting](https://platform.openai.com/docs/guides/speech-to-text/prompting){target=blank} Whisper:
 { .annotate }
 
 1. ffmpeg is a dependency for PyDub
@@ -135,13 +165,8 @@ Here's what I added for larger file support
 from pydub import AudioSegment
 from pydub.utils import make_chunks
 
-def transcribe_audio(file, prompt=None):
-    print("Starting transcribe...")
-    with open(file, "rb") as file:
-        transcript = openai_client.audio.transcriptions.create(model = "whisper-1", file=file, prompt=prompt)
-    
-    return transcript.text
-
+# Takes a chunk duration in minutes, and a file as arguments.
+# Saves chunks to the working directory, and returns a list of filenames.
 def chunk_audio(chunk_mins, file):
     print("Chunking audio...")
 
@@ -160,25 +185,43 @@ def chunk_audio(chunk_mins, file):
 
 if __name__ == "__main__":
 
-    audio_files = get_filenames(AUDIO_PATH) # Get filenames of all audio files in Dropbox
-    download_files(AUDIO_PATH, audio_files) # Download all audio files from Dropbox
-
     for file in audio_files:
 
         chunks = chunk_audio(40, file)
         transcripts = ['']
 
+        # Transcribe chunks with preceding chunk transcript as a prompt
         for chunk in chunks:
             transcript = transcribe_audio(file=chunk, prompt=transcripts[-1])
             transcripts.append(transcript)
 ```
 
+I also had to update my runner to install ffmpeg with [this](https://github.com/marketplace/actions/setup-ffmpeg){target=blank}. Now the steps are:
+
+```yaml
+steps:
+  - name: Checkout
+    uses: actions/checkout@v4
+  - name: Setup ffmpeg
+    uses: FedericoCarboni/setup-ffmpeg@v3
+  - name: Setup Python
+    uses: actions/setup-python@v5
+```
 
 
+### Use GPT-4 for meeting minutes
+Now that we have the full text for audio files of any size, we can use GPT-4 to summarize the content. Doing so was remarkably trivial. I followed [this tutorial](https://platform.openai.com/docs/tutorials/meeting-minutes){target=blank} [almost verbatim](https://github.com/tlofreso/speech-to-text/blob/main/meeting_notes.py){target=blank}, and added three lines of Python to `main.py`
 
-## Enhancing
-### Add support for larger files
- - generally, .m4a files are 500KB / Min. So breaking files into 40 minute chunks will work
-### Add prompting for meeting minutes
+```python
+from meeting_notes import meeting_minutes
+with open(out_txt, "r") as full_transcript:
+     notes = meeting_minutes(full_transcript.read())
+```
 
-1. ffmpeg is a pre-requisite for PyDub
+## Cost
+My use of Dropbox and GitHub fall well within the free tiers. The spend in ChatGPT is quite low for what you get. Especially when you consider the sheer compute it takes to do the job: Transcribe, then Summarize. Here's where my January bill stands:
+
+ - 26,600 transcribed seconds: $2.90
+ - 274,600 tokens: $3.00
+
+Something else you'll quickly hit when using the APIs for anything other than trivial tasks, is [Usage limits](https://platform.openai.com/docs/guides/rate-limits/usage-tiers?context=tier-free){target=blank}. Luckily, the ceiling for Tier 2 is quite high, and you can simply purchase $50 in API credits to unlock it.
