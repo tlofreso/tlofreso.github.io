@@ -50,6 +50,7 @@ plugins:
   #       background_image: layouts/moon.png
   #       color: "#DE9151"
   #       font_family: Caveat
+  - search
   - blog:
       blog_dir: .
       draft: false
