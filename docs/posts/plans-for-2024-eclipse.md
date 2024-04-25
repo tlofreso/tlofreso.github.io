@@ -63,7 +63,7 @@ To Bring:
 
  - [Interactive google map](https://eclipse2024.org/eclipse_cities/statemap.html){target=_blank}  
  - [Smarter Every Day - Eclipse](https://www.smartereveryday.com/eclipse){target=_blank}  
- - [Smarter Every Day Checklist](./assets/EclipseChecklist2.pdf){target=_blank}  
+ - [Smarter Every Day Checklist](../assets/posts/2024-eclipse/EclipseChecklist2.pdf){target=_blank}  
  - [NASA 2024 Total Eclipse](https://science.nasa.gov/eclipses/future-eclipses/eclipse-2024/where-when/){target=_blank}  
  - [10 Rookie Mistakes](https://www.space.com/eclipse-chaser-rookie-mistakes-how-to-avoid-them){target=_blank}
 
