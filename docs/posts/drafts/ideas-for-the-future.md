@@ -4,7 +4,7 @@ date: 2024-01-01
 authors:
   - me
 categories:
-  - ChatGPT
+  - GenAI
 ---
 
  - Public APIs: https://github.com/public-apis/public-apis?tab=readme-ov-file#development

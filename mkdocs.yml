@@ -51,6 +51,9 @@ plugins:
   #       color: "#DE9151"
   #       font_family: Caveat
   - search
+  - privacy:
+      links_attr_map:
+        target: _blank
   - blog:
       blog_dir: .
       draft: false
@@ -63,7 +66,7 @@ plugins:
         - Maker
         - Boardgames
         - Linux
-        - ChatGPT
+        - GenAI
         - Space
 
 nav:

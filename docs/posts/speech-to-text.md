@@ -4,7 +4,7 @@ date: 2024-01-30
 authors:
   - me
 categories:
-  - ChatGPT
+  - GenAI
 ---
 
 # Speech to Text using Whisper
