@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 date: 2024-05-15
 authors:
   - me
@@ -14,7 +14,7 @@ The other day, I came across [this post](https://twitter.com/llama_index/status/
 
 > They split the file into chunks by page, or by paragraph or who the fuck knows. Embed it with `ada-002` for a couple cents. Store the embeddings in some hacked together database. They match your query by cosine similarity :laughing: and return the top k. :rofl: If the answer is bad ... they just increase the value of k! :laughing: :rofl: Users have no idea how embeddings work, so they fill their query full of keywords expecting it to match but the top results are `README.md` and 5 `__init__` files so they switch to `text-embedding-3-large` and get a bigger disk :rofl: and performance gets **worse**. Convince their boss to pay for Pinecone, :rofl: :rofl: :rofl: still no beans! Still haven't added a keyword search!
 
-![el-risitas](../../assets/posts/advanced-rag/el-risitas.jpeg)
+![el-risitas](../assets/posts/advanced-rag/el-risitas.jpeg)
 
 Derisive tactics aside, having someone tell you how not to do something can help inform better approaches. I had confidently "increased the value of k" and "switched to `text-embedding-3-large`". Afterall, OpenAI [says](https://platform.openai.com/docs/assistants/tools/file-search/how-it-works) that's a best practice! Lest we forget:triangular_flag_on_post:... OpenAI will store your embedded data for $0.10/GB. That adds up quick when the default settings are:
 
@@ -49,7 +49,7 @@ There are a few patterns I've noticed that newbies encounter.
 
 1. Users want citations. The first way folks try to accomplish this, is by coaxing the llm to cite the response. "Be sure to include the page where the answer was found." I've found this technique to be wildly inconsistent, and inaccurate.
 2. As your dataset increases... querying, and the steps you perform before that stage get much more complex. Early wins feel really great, but quickly dissolve as soon as you begin to scale.
-3. OpenAI is really, really fast. The hurdle you solved for this week, may simply not exist next week. This creates a weird dynamic for prioritizing work
+3. OpenAI develops really, really fast. The hurdle you solved for this week, may simply not exist next week. This creates a weird dynamic for prioritizing work
 
 ## The Five Stages
 ### Loading
@@ -191,7 +191,7 @@ Settings.text_splitter = SentenceSplitter(chunk_size=1000, chunk_overlap=200)
 ```
 
 ### Storage
-For now, we're keeping storage simple. Right on the local filesystem. This code will...
+For now, we're keeping storage simple. Right on the local filesystem. The code below will...
 
 1. Set the llm, embedding, and chunk config
 2. Load the data
@@ -228,8 +228,84 @@ if __name__ == "__main__":
 ```
 
 ### Querying
+I have a lot to learn about querying. For the purposes of the goals outlined above, I was able to simply pass the index we're storing to a `query_engine` and the performance was pretty good.
+
+```python
+storage_context = StorageContext.from_defaults(persist_dir=PERSIST_DIR)
+index = load_index_from_storage(storage_context)
+query_engine = index.as_query_engine()
+response = query_engine.query("How does Stalin's 'niet' ability work?")
+```
+
+```bash
+------------------------
+
+Prompt: How does Stalin's 'niet' ability work?
+
+Answer: Stalin's 'nyet' ability allows him to add a value of +1 when debating issues, reflecting his strong opposition and influence. This characteristic is used to move issues more effectively during
+discussions.
+
+Citation: CHURCHILLRules-Final.pdf - page 28
+Citation: CHURCHILLRules-Final.pdf - page 29
+
+------------------------
+```
+
+Nice! It works!  
+
+I don't show it here... but LlamaIndex includes in the response `text` word for word from the document. This is great because we can give the user a verbatim excerpt from the document they're inquiring about.
 
 ### Evaluating
+This is a stage for another day. Probably a future post once I get around to it :)
 
-https://www.eyelevel.ai/post/most-accurate-rag
+
+## Lessons Learned
+
+### Documents with Similar Data are Challenging
+When dealing with documents that contains similar, but different data... it can be challenging to get relevant results. As an example, The Harmonie Group publishes law guides that provide insights on various legal topics at a state level. If you were to ingest the following files:
+
+```
+Ohio Harmonie Law Guide.pdf
+Arizona Harmonie Law Guide.pdf
+Illinois Harmonie Law Guide.pdf
+Delaware Harmonie Law Guide.pdf
+Washington Harmonie Law Guide.pdf
+Pennsylvania Harmonie Law Guide.pdf
+```
+
+And then write a prompt that says "What is the statute of limitations in Ohio?" the LLM will give you a summary of the statute of limitations laws, but it may not be for Ohio. If I upload 50 law guides, all of which contain statutes of limitation, things get muddy quickly with the returned responses. This is why citing the data is so important.
+
+Altering the `chunk_size` and `chunk_overlap` seemed to help solve this quite a bit. Post-processing in Python can help as well, simply removing responses that aren't relevant
+
+```python
+if state not in response.response:
+    print(f"State mismatch in response for {state}.")
+else:
+    print(f"\n\n{response.response}\n\n")
+    for node in response.source_nodes:
+        filename = node.node.metadata["file_name"]
+        page = node.node.metadata["page_label"]
+        print(f"{filename} - page {page} - {state} in Filename? {state in filename}")
+```
+
+Here's an article I came across that touches briefly on similar, but different data challenges: [World's Most Accurate RAG?](https://www.eyelevel.ai/post/most-accurate-rag)
+
 > Cosine similarity is a popular strategy, but it has a big limitation; it’s often tripped up by semantic similarity. Basically, cosine similarity can get confused if there are superficial similarities in two pieces of text. Because many of the documents contain information about tax information, it’s likely that LangChain and LlamaIndex both got confused and simply returned a chunk which was irrelevant to the prompt.
+
+### Embeddings are Large
+I was surprised when I matched my application's config to OpenAI's `chunk_size=800, chunk_overlap=400`, and the files I uploaded for embedding, returned 3x in size. In hindsight, they're reducing the dimensions as well, so it's likely not a 3-fold increase, but still something that needs considered.
+
+It's clear to me that enterprise RAG won't be as simple as embedding the entire network share. Some thought will go into whether something is embedded, and stored to disk... or embedded in memory on demand.
+
+## What's next?
+
+I'm fairly motivated by the progress I've made. These are the things I want to work on next:
+
+ - Adding a frontend to my RAG app. There are many, I'll probably start with streamlit, flask, librechat, or openwebui.
+ - I'd like to learn more about data lifecycle management. Best practices for updating the embeddings of a newly modified file. Removing old embeddings, adding new files, etc.
+ - At some point I'll need to get embeddings into a proper database vs json files on my filesystem.
+ - Ingest data from additional sources
+ - Dive deeper on querying
+ - Figure an elegant way to evaluate output
+
+There's a lot to learn. It's overwhelming, but there are enough wins along the way that I'm able to stay excited about the work.
