@@ -69,6 +69,7 @@ plugins:
         - Linux
         - GenAI
         - Space
+        - Radio
 
 nav:
   - Blog:
