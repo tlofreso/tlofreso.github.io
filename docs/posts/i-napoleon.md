@@ -11,6 +11,8 @@ categories:
 
 This isn't a review, or a post about my thoughts on the game. It's more a players guide. Something that's digital, mobile friendly, and a shortcut to many of the things I consistently look up in the official rulebook.
 
+<!-- more -->
+
 ## Napoleon's Luck
 Once per year, you may use Napoleon's Luck for any one of the following:
 
