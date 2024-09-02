@@ -13,6 +13,9 @@ This isn't a review, or a post about my thoughts on the game. It's more a player
 
 <!-- more -->
 
+## Inital Setup
+
+
 ## Napoleon's Luck
 Once per year, you may use Napoleon's Luck for any one of the following:
 
