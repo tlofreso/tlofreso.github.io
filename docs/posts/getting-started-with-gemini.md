@@ -50,11 +50,14 @@ print(response.text)
 ## People to Follow
 The level of exposure the community has to the people building this tooling is remarkable. Here are several I follow:
 
- - [Raiza Martin](https://x.com/raiza_abubakar) - Product Lead for NotebookLM
+ - [Raiza Martin](https://x.com/raizamrtn) - Product Lead for NotebookLM [^1]
  - [Josh Woodward](https://x.com/joshtwoodward) - VP at Google Labs
  - [Logan Kilpatrick](https://x.com/OfficialLoganK) - Leed Product for Google AI Studio
+
 
 They are iterating incredibly fast, and are very open to community feedback. Here's a great [example](https://x.com/levelsio/status/1831836883829322156) of a discussion between Logan and Pieter.
 
 ## Other Notes
 Gemini's [free tier](https://ai.google.dev/pricing) for developers is the most generous of any AI provider. This opens the door to some interesting use cases. I'm using the platform quite a bit... and time permitting, hope to write about the gems I find along the way.
+
+[^1]: Raiza has [since left](https://x.com/raizamrtn/status/1863645718159954272) google to start her own [company](https://werebuilding.ai).

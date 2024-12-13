@@ -102,6 +102,21 @@ Professionally, Simon builds [GoJS](https://gojs.net/latest/index.html){:target=
      - Wood Working
      - Tech
 
+## Simon Willison
+Simon is developer behind [Django](https://www.djangoproject.com), [Datasette](https://datasette.io), and my favorite GenAI utility [llm](https://github.com/simonw/llm). What I find most impressive about Simon, is his insatiable curiosity and sheer output. His blog is vast. Covering everything from data journalism to fascinating experiments and creative use cases for GenAI tooling. Simon has a knack for breaking down complex topics into digestible pieces. He also actively shares his ongoing projects and ideas through weekly newsletters and [TILs (Today I Learned)](https://til.simonwillison.net/).
+
+[:fontawesome-brands-x-twitter:](https://twitter.com/simonw){:target="blank"} - 
+[:material-github:](https://github.com/simonw){:target="blank"} - 
+[:material-web:](https://simonwillison.net/){:target="blank"} - 
+
+??? note "Topics Simon covers"
+
+     - Data Journalism
+     - Django
+     - Datasette
+     - Generative AI
+     - Software Development
+
 ## Tall Paul Tech
 An unapologetically brash Austrailian who knows a ton about RF & networking. Paul spends his time mounting Discone antennas, doing deep dives on packet captures, and occasionally plays music / cooks. If you're in networking, [this playlist](https://youtube.com/playlist?list=PLGvkW0sr-RWYdqxQEx3aCx4cxZP7DvSur&feature=shared){:target="blank"} is a __must__. If you happen to live around Brisbane, he does do an annual meetup... Otherwise, you can find him on IRC.
 
