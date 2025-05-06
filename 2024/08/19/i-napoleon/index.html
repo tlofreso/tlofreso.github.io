@@ -1,0 +1,1794 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="My Blog Site">
+      
+      
+        <meta name="author" content="Tony Lofreso">
+      
+      
+        <link rel="canonical" href="https://tlofreso.github.io/2024/08/19/i-napoleon/">
+      
+      
+        <link rel="prev" href="../../../05/15/advanced-rag/">
+      
+      
+        <link rel="next" href="../../../11/30/getting-started-with-google-ai-studio/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12+insiders-4.53.16">
+    
+    
+      
+        <title>I, Napoleon - Tony's Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ff49f96f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#i-napoleon" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Tony&#39;s Blog" class="md-header__button md-logo" aria-label="Tony's Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tony's Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              I, Napoleon
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tlofreso/tlofreso.github.io" title="Go to repository" class="md-source" data-md-component="source" target="_blank" rel="noopener">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Tony&#39;s Blog" class="md-nav__button md-logo" aria-label="Tony's Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Tony's Blog
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tlofreso/tlofreso.github.io" title="Go to repository" class="md-source" data-md-component="source" target="_blank" rel="noopener">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Categories
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Categories
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/boardgames/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boardgames
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/genai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GenAI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/home-lab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home Lab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/home-media/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home Media
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/space/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Space
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inital-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inital Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#napoleons-luck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Napoleon's Luck
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#game-ending-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Game Ending Scenarios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sequence-of-play" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sequence of Play
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sequence of Play">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#year-setup-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Year Setup Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-deck-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card Deck Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-action-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card Action Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#campaign-resolution-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Campaign Resolution Phase
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Campaign Resolution Phase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assign-commanders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assign Commanders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spanish-ulcer-expeditions-emd-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spanish Ulcer Expeditions (EMD Only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#campaign-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Campaign Resolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commander-casualties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commander Casualties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-campaign-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Campaign Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-campaign-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additional Campaign Resolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#campaign-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Campaign Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abdication-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abdication Check
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diplomatic-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diplomatic Phase
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Diplomatic Phase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foreign-diplomacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Foreign Diplomacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-treaties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Treaties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breaking-treaties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breaking Treaties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conquest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conquest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#potential-campaigns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Potential Campaigns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#domestic-politics-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Domestic Politics Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clean-up-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clean-Up Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactions-on-bgg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactions on BGG
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../.." class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="/assets/profile-small.png" alt="Tony Lofreso">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          Tony Lofreso
+                        
+                      </strong>
+                      <br>
+                      Network Engineer
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2024-08-19 00:00:00+00:00" class="md-ellipsis">August 19, 2024</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/boardgames/">Boardgames</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              8 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+
+  
+  
+
+
+<h1 id="i-napoleon">I, Napoleon<a class="headerlink" href="#i-napoleon" title="Permanent link">🔗&#xFE0E;</a></h1>
+<p>This isn't a review, or a post about my thoughts on the game. It's more a players guide. Something that's digital, mobile friendly, and a shortcut to many of the things I consistently look up in the official rulebook.</p>
+<!-- more -->
+
+<h2 id="inital-setup">Inital Setup<a class="headerlink" href="#inital-setup" title="Permanent link">🔗&#xFE0E;</a></h2>
+<h2 id="napoleons-luck">Napoleon's Luck<a class="headerlink" href="#napoleons-luck" title="Permanent link">🔗&#xFE0E;</a></h2>
+<p>Once per year, you may use Napoleon's Luck for any one of the following:</p>
+<ul>
+<li>To reroll any one Die Roll</li>
+<li>To immediately Ignore any one Mandatory Card just drawn and redraw a new card instead</li>
+<li>During the Campaign Resolution Phase, use Napoleon's Luck instead of paying the cost of any one <strong>Commander</strong> or <strong>Strategy &amp; Tactics</strong> card</li>
+</ul>
+<p>Napoleon's Luck may not be used after Abdication</p>
+<h2 id="game-ending-scenarios">Game Ending Scenarios<a class="headerlink" href="#game-ending-scenarios" title="Permanent link">🔗&#xFE0E;</a></h2>
+<p>The game immediately ends if any of the following occur at any point during the game:</p>
+<ul>
+<li>Card text explicitly noting that the game ends</li>
+<li>Glory reaches - during <code>FCD</code> or <code>EMD</code></li>
+<li><code>FCD</code> isn't triggered by the end of 1802</li>
+<li><code>EMD</code> isn't triggered by the end of <code>FCD</code></li>
+<li>Resolving certain cards will end the game (97, 156, 209, etc...)</li>
+<li>During Abdication</li>
+<li>At the conclusion of the Final Year</li>
+</ul>
+<h2 id="sequence-of-play">Sequence of Play<a class="headerlink" href="#sequence-of-play" title="Permanent link">🔗&#xFE0E;</a></h2>
+<p>This is a semi-detailed Sequence of Play that covers just enough to avoid referencing the rulebook.</p>
+<h3 id="year-setup-phase">Year Setup Phase<a class="headerlink" href="#year-setup-phase" title="Permanent link">🔗&#xFE0E;</a></h3>
+<p>This phase is skipped in the first year of any scenario.</p>
+<ol>
+<li>Advance the Year marker</li>
+<li>Reset the Card Draw marker</li>
+<li>
+<p>Take Resource Income</p>
+<ol>
+<li>May exchange <strong>Political</strong> for <strong>Administrative</strong> <code>1:1</code></li>
+<li>May exchange <strong>Glory</strong> for <strong>Administrative</strong> <code>3:1</code></li>
+</ol>
+</li>
+</ol>
+<div class="admonition note">
+<p>Either Resource conversion may only yield up to a maximum combined total of 3 Admin points per year.</p>
+</div>
+<h3 id="card-deck-phase">Card Deck Phase<a class="headerlink" href="#card-deck-phase" title="Permanent link">🔗&#xFE0E;</a></h3>
+<p>This phase is skipped in the first year of any scenario.</p>
+<ol>
+<li>
+<p>Remove Cards</p>
+<div class="admonition note">
+<p>Years when cards are removed:<br />
+1794, 1795, 1796, 1802, 1803, 1813, 1814, 1815, 1816</p>
+</div>
+</li>
+<li>
+<p>Add Cards</p>
+</li>
+<li>
+<p>Shuffle Draw Deck</p>
+<div class="admonition warning">
+<p>The game ends If</p>
+<ul>
+<li>Brumaire (47) has not been played by the end of CMD</li>
+<li>or if Imperial Plebiscite (110) has not been played by the end of FCD.</li>
+</ul>
+</div>
+</li>
+</ol>
+<h3 id="card-action-phase">Card Action Phase<a class="headerlink" href="#card-action-phase" title="Permanent link">🔗&#xFE0E;</a></h3>
+<ol>
+<li>
+<p>Draw a New Card and do what it says</p>
+<details class="note">
+<summary>A note on card costs</summary>
+<ul>
+<li>If the Cost of a Mandatory card <strong>can</strong> be paid, it <strong>must</strong> be paid.</li>
+<li>If the cost of a mandatory card <strong>cannot</strong> be paid, the card is Discarded and a new card is drawn without increasing the Card Draw marker.</li>
+<li>If you do not have enough to pay the cost (or do not want to pay the cost) of a non-Mandatory card, you cannot Play that card and must Discard it. <em>However, on non-Mandatory cards, you do not redraw if you Discard the card.</em></li>
+</ul>
+</details>
+</li>
+<li>
+<p>Play an Existing Card. Any Eligible, face-up Placed Cards on the map may now be Played, by resolving the Main Section. After Playing the card, be sure the Remove or Discard it, if required. If the card has an Ongoing Effect whcih can only Trigger once per Year, you may want to exhaust the card by rotating it as a reminder that its effect has been used.</p>
+</li>
+<li>
+<p>Phase Advancement Roll</p>
+<details class="note">
+<summary>A note on exhausted draw deck during CMD</summary>
+<p>In the extremely rare event that there are no cards left in the draw deck during this segment in the CMD Era, immediately skip to the Campaign Resolution Phase and Play Brumaire (47). If you cannot afford the combined 20G/P, the game immediately ends.</p>
+</details>
+</li>
+</ol>
+<h3 id="campaign-resolution-phase">Campaign Resolution Phase<a class="headerlink" href="#campaign-resolution-phase" title="Permanent link">🔗&#xFE0E;</a></h3>
+<p>If the Campaign Box is empty, skip to Campaign Clean-up... <strong>UNLESS</strong> Spanish Ulcer (221) is active.</p>
+<h4 id="assign-commanders">Assign Commanders<a class="headerlink" href="#assign-commanders" title="Permanent link">🔗&#xFE0E;</a></h4>
+<p>Pay the cost indicated for every assigned commander regardless of use. Keep in mind A/G/P you may want to spend on Strategy &amp; Tactics.  </p>
+<p>If <em>Spanish Ulcer Expeditions</em> (221) is active, one Independent Commander <em>must</em> be assigned (if possible) to the SPAIN Box before any other Commander cards may be assigned to the curent campaign.</p>
+<h4 id="spanish-ulcer-expeditions-emd-only">Spanish Ulcer Expeditions (EMD Only)<a class="headerlink" href="#spanish-ulcer-expeditions-emd-only" title="Permanent link">🔗&#xFE0E;</a></h4>
+<p>The <em>Spanish Ulcer Expeditions</em> (221) becomes active under two conditions:</p>
+<ul>
+<li><em>Spain Rises</em> (199) is Played</li>
+<li>Spain becomes Hostile</li>
+</ul>
+<p>It remains active until the game ends, or Napoleon abdicates.  </p>
+<p>The Spanish Ulcer must be resolved during each Campaign Resolution Phase. </p>
+<ul>
+<li>Use any eligible cards in the BRITAIN Box, and any assigned Independent Commanders, along with any <em>Strategy &amp; Tactics</em> cards to determine DRMs. </li>
+<li>Apply the result of Success or Failure. Failure requires any one IC assigned to be randomly Discarded (unless Junot. He must be removed per card instructions). </li>
+<li>Used Commanders and Strategy &amp; Tactics cards are returned to their boxes, face-down.</li>
+</ul>
+<h4 id="campaign-resolution">Campaign Resolution<a class="headerlink" href="#campaign-resolution" title="Permanent link">🔗&#xFE0E;</a></h4>
+<ol>
+<li><strong>Select Commanders</strong> among those assigned, pay attention to any indicated "combat round" restrictions</li>
+<li><strong>Add Strategy &amp; Tactics Cards</strong>. Unlike Commander cards, these do not need added ahead of time, and may be reused in subsequent Combat Rounds. This is not always the case though... again, pay attention to combat round restrictions.</li>
+<li><strong>Check Hostile Nation Effects</strong> (mid-late game)</li>
+<li><strong>Check Campaign Modifiers</strong> for DRMs during specific Combat Rounds</li>
+<li><strong>Determine Final DRM</strong></li>
+<li><strong>Flip Used Commanders Face-Down</strong>. That is: Flip all Commanders slected for the Combat Round face-down as a reminder that they may not be used in any subsequent Combat Round.</li>
+<li>
+<p><strong>Combat Roll and Resolution</strong></p>
+<table>
+<thead>
+<tr>
+<th>Modified DR Result</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 or less</td>
+<td>Bloody Defeat</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Defeat</td>
+</tr>
+<tr>
+<td>3-4</td>
+<td>Bloody Stalemate</td>
+</tr>
+<tr>
+<td>5-6</td>
+<td>Stalemate</td>
+</tr>
+<tr>
+<td>7-8</td>
+<td>Bloody Victory</td>
+</tr>
+<tr>
+<td>9 or more</td>
+<td>Victory</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Check for Adjusted Result</strong> Some campaign modifier cards alter the outcome of a battle.  </p>
+<ul>
+<li><strong>If both friendly and enemy cards can adjust the result, the enemy card's effect is applied first.</strong> This may mean that the Friendly card no longer adjusts the result, or that it now does adjust the result.</li>
+<li>If the final outcome was <strong>Bloody</strong>, place a Bloody Result marker near the Domestic Politics Table. This will <code>-1 DRM</code> for that phase. <em>Bloody Result markers are not placed during CMD.</em></li>
+<li>If Victory, Treaty cards are Placed face-down in the CURRENT TREATIES Box. If the result calls for a Trety to be placed and it is not in the POTENTIAL TREATIES area of the board (because it was Placed preveiously, or Removed), the affected nation may be <a href="">Conquered</a> instead.</li>
+<li>If Stalemate, <code>-2G</code> and <code>-1 DRM</code> for the next combat round, and any subsequent combat rounds.</li>
+</ul>
+</li>
+</ol>
+<h4 id="commander-casualties">Commander Casualties<a class="headerlink" href="#commander-casualties" title="Permanent link">🔗&#xFE0E;</a></h4>
+<p>Roll a D10 for all assigned commanders regardless of use. On 1, or 2 Commanders are discarded.</p>
+<h4 id="other-campaign-events">Other Campaign Events<a class="headerlink" href="#other-campaign-events" title="Permanent link">🔗&#xFE0E;</a></h4>
+<p>Resolve main section of any Campaign Modifiers with an effect that triggers after campaign resolution.</p>
+<h4 id="additional-campaign-resolution">Additional Campaign Resolution<a class="headerlink" href="#additional-campaign-resolution" title="Permanent link">🔗&#xFE0E;</a></h4>
+<p>Sometimes multiple campaigns must be resolved. In this case:</p>
+<ul>
+<li>Place the new campaign</li>
+<li>Flip commanders used in the first campaign up (new commanders may not be added)</li>
+<li>Flip Strategy &amp; Tactics cards up. If they have a cost, it must be paid again</li>
+<li>Any campaign modifiers from the original campaign are discarded</li>
+</ul>
+<h4 id="campaign-cleanup">Campaign Cleanup<a class="headerlink" href="#campaign-cleanup" title="Permanent link">🔗&#xFE0E;</a></h4>
+<ul>
+<li>Remove <strong>Campaign Modifiers</strong>, and <strong>Campaigns</strong> that have the "when played" icon in the bottom-right</li>
+<li>Return <strong>commanders</strong> and <strong>strategy &amp; tactics</strong> cards to their boxes face-up.</li>
+<li>Return <strong>Potential Campigns</strong> cards to their area</li>
+<li>Discard Campaign Modifiers that were not removed.</li>
+</ul>
+<h4 id="abdication-check">Abdication Check<a class="headerlink" href="#abdication-check" title="Permanent link">🔗&#xFE0E;</a></h4>
+<p>If the Campaign Resolution phase result was a Defeat in <em>La Patrie en Danger</em> (149), Game End has been triggered. Perform the <a href="">Abdication Segment</a>.</p>
+<h3 id="diplomatic-phase">Diplomatic Phase<a class="headerlink" href="#diplomatic-phase" title="Permanent link">🔗&#xFE0E;</a></h3>
+<h4 id="foreign-diplomacy">Foreign Diplomacy<a class="headerlink" href="#foreign-diplomacy" title="Permanent link">🔗&#xFE0E;</a></h4>
+<p>At the start of this phase, you may exchange:</p>
+<ul>
+<li><strong>Glory</strong> for <strong>Diplomatic</strong> <code>3:1</code></li>
+<li><strong>Political</strong> for <strong>Diplomatic</strong> <code>1:1</code></li>
+</ul>
+<p>for a maximum of one Diplomatic point per year. Diplomatic points may be spent to +1 DRM / point.</p>
+<table>
+<thead>
+<tr>
+<th>Modified DR</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 to 5</td>
+<td>Remove Treaty or move the marker towards (or to) Hostile.</td>
+</tr>
+<tr>
+<td>6 or more</td>
+<td>No effect.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="current-treaties">Current Treaties<a class="headerlink" href="#current-treaties" title="Permanent link">🔗&#xFE0E;</a></h4>
+<ul>
+<li>Face-down treaties are not rolled.</li>
+<li>Roll for face-up treaties. On a modified DR of 1-5:<ul>
+<li>During <code>FCD</code>, move the marker towards Hostile</li>
+<li>During <code>EMD</code>, remove the treaty from the CURRENT TREATIES Box</li>
+</ul>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Keeping track of the diplomatic landscape</p>
+<p>I find it helpful to rotate a nation's diplomacy marker if I'm not performing a diplomacy roll for some time. For example, after victory in Austria (Italy) Austria will be Neutral under <em>The Treaty of Luneville</em> until Napoleon becomes Emperor.</p>
+</div>
+<h4 id="breaking-treaties">Breaking Treaties<a class="headerlink" href="#breaking-treaties" title="Permanent link">🔗&#xFE0E;</a></h4>
+<p>Napoleon may Remove any Treaty card in the CURRENT TREATIES Box. If you choose to do so:</p>
+<ul>
+<li>Set affected nations to Hostile</li>
+<li>Remove the treaty from the game</li>
+</ul>
+<h4 id="conquest">Conquest<a class="headerlink" href="#conquest" title="Permanent link">🔗&#xFE0E;</a></h4>
+<p><strong>Austria</strong>, <strong>Prussia</strong>, and <strong>Britain</strong> may be Conquered. Conquering a nation results in +10G and +1P per nation to the player during the Resource Income segment.  </p>
+<p><strong>Austria and Prussia</strong><br />
+If Austria and/or Prussia are defeated in a Campaign and no Potnetial Treaty card exists, the nation is considered Conquered. Flip its marker to its Conquered side. Austria or Prussia remain Conquered until:</p>
+<ul>
+<li>Napoleon suffers a Defeat in a Campaign</li>
+<li>Or cards:<ul>
+<li>Prussia Rises (198)</li>
+<li>English Gold Austria (188)</li>
+<li>English Gold (189)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Britain</strong><br />
+Britain can only be Conquered by playing <em>Trafalgar</em> (117) IF <em>Nelson</em> (36) is not face-up in the BRITAIN Box. Flip its marker to its Conquered side and remove the following cards from Play:</p>
+<ul>
+<li>John Moore (116)</li>
+<li>Wellington (118)</li>
+<li>English Expedition (131)</li>
+<li>Continental System (133)</li>
+<li>English Gold (Austria) (188)</li>
+<li>English Gold (189)</li>
+<li>Lines of Torres Vedras (193)</li>
+</ul>
+<p>A Conquered Britian remains Conquerted for the rest of the game.</p>
+<p><strong>Russia and Spain</strong><br />
+Russia and Spain may never be Conquered. If no treaty, they remain Hostile. However:</p>
+<ul>
+<li>If Russia suffers a Defeat while Prussia and Austria are Conquered, flip its marker to "Inactive"</li>
+<li>Inactive Russia does not take part in any Campaigns until Austria or Prussia become Hostile.</li>
+<li>Inactive Russia is still considered Hostile for Domestic Politics</li>
+</ul>
+<h4 id="potential-campaigns">Potential Campaigns<a class="headerlink" href="#potential-campaigns" title="Permanent link">🔗&#xFE0E;</a></h4>
+<p>Determine whether or not a Potential Campaing card is Placed in the CAMPAIGN Box for next year. This is Optional during <code>FCD</code> but Mandatory during <code>EMD</code>.  </p>
+<p><strong>FCD Potential Campaigns</strong><br />
+If <strong>Spain</strong> and/or <strong>Prussia</strong> is Hostile, you may pick either:</p>
+<ul>
+<li>Republican War with Prussia (70)</li>
+<li>Republican War with Spain (71)</li>
+</ul>
+<p><strong>EMD Potential Campaigns</strong><br />
+Check the EMD Potential Campaigns Table below for Campaign selection. If the Diplomatic Status of a nation changes in the subesquent year, check for a better matching campaign card, and replace the current campaign.</p>
+<table>
+<thead>
+<tr>
+<th>Austria</th>
+<th>Prussia</th>
+<th>Russia</th>
+<th>Spain</th>
+<th>Potential Campaign to Select</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hostile</td>
+<td>Allied, Neutral, Conquered</td>
+<td>Allied, Neutral, Inactive</td>
+<td>Any</td>
+<td>Austria Declares War (145)</td>
+</tr>
+<tr>
+<td>Hostile</td>
+<td>Hostile</td>
+<td>Allied, Neutral, Inactive</td>
+<td>Any</td>
+<td>Austria &amp; Prussia Declare War (146)</td>
+</tr>
+<tr>
+<td>Hostile</td>
+<td>Hostile</td>
+<td>Hostile</td>
+<td>Any</td>
+<td>Austria, Prussia, &amp; Russia Declare War (147)</td>
+</tr>
+<tr>
+<td>Hostile</td>
+<td>Allied, Neutral, Conquered</td>
+<td>Hostile</td>
+<td>Any</td>
+<td>Austria &amp; Russia Declare War (148)</td>
+</tr>
+<tr>
+<td>Conquered</td>
+<td>Allied or Neutral</td>
+<td>Hostile</td>
+<td>Any</td>
+<td>Austria &amp; Russia Declare War (148) - Place in the CAMPAIGN Box but Austria's cards may not be used when resolved.</td>
+</tr>
+<tr>
+<td>Any</td>
+<td>Any</td>
+<td>Any</td>
+<td>Any</td>
+<td>La Patrie en Danger (149) - Must Place when Triggered by a Campaign Result.</td>
+</tr>
+<tr>
+<td>Allied, Neutral, Conquered</td>
+<td>Allied, Neutral, Conquered</td>
+<td>Allied, Neutral, Inactive</td>
+<td>Hostile</td>
+<td>Napoleon in Spain (150)</td>
+</tr>
+<tr>
+<td>Any</td>
+<td>Any</td>
+<td>Any</td>
+<td>Any</td>
+<td>Polish Campaign (151) - May Place and resolve immediately when Triggered by Victory in Prussia and Russia Declare War (153).</td>
+</tr>
+<tr>
+<td>Allied, Neutral, Conquered</td>
+<td>Hostile</td>
+<td>Allied, Neutral, Inactive</td>
+<td>Any</td>
+<td>Prussia Declares War (152)</td>
+</tr>
+<tr>
+<td>Allied of Neutral</td>
+<td>Hostile</td>
+<td>Hostile</td>
+<td>Any</td>
+<td>Prussia &amp; Russia Declare War (153)</td>
+</tr>
+<tr>
+<td>Allied or Neutral</td>
+<td>Conquered</td>
+<td>Hostile</td>
+<td>Any</td>
+<td>Prussia &amp; Russia Declare War (153) - Place in the CAMPAIGN Box but Prussia's cards may not be used when resolved.</td>
+</tr>
+<tr>
+<td>Allied or Neutral</td>
+<td>Allied</td>
+<td>Hostile or Neutral</td>
+<td>Any</td>
+<td>Retreat From Russia (154) - Must Place and resolve immediately when Triggered by Stalemate or Defeat in Russia (155).</td>
+</tr>
+<tr>
+<td>Allied or Neutral</td>
+<td>Allied</td>
+<td>Hostile or Neutral</td>
+<td>Any</td>
+<td>Russia (155) - May Place in CAMPAIGN Box. -5 G if not played when possible.</td>
+</tr>
+<tr>
+<td>Conquered</td>
+<td>Conquered</td>
+<td>Hostile</td>
+<td>Any</td>
+<td>Roll a Die: <br> 1-5: Austria &amp; Russia Declare War (148) - Place in the CAMPAIGN Box but Austria's cards may not be used when resolved. <br> 6-10: Prussia &amp; Russia Declare War (153) - Place in the CAMPAIGN Box but Prussia's cards may not be used when resolved.</td>
+</tr>
+<tr>
+<td>Allied, Neutral, Conquered</td>
+<td>Allied, Neutral, Conquered</td>
+<td>Allied, Neutral, Inactive</td>
+<td>Allied or Neutral</td>
+<td>No EMD Campaign must be selected.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="domestic-politics-phase">Domestic Politics Phase<a class="headerlink" href="#domestic-politics-phase" title="Permanent link">🔗&#xFE0E;</a></h3>
+<p>At the start of this phase, you may exchange:</p>
+<ul>
+<li><strong>Admin</strong> for <strong>Political</strong> <code>2:1</code></li>
+<li><strong>Glory</strong> for <strong>Political</strong> <code>3:1</code></li>
+</ul>
+<p>for a maximum of one Political point per year. Political points may be spent to +1 DRM / 2P spent. Calculate the Final DRM accounting for variables on the Domestic Politics Table. Then adjust Glory as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Modified DR</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 or less</td>
+<td>–10 Glory</td>
+</tr>
+<tr>
+<td>1-3</td>
+<td>–5 Glory</td>
+</tr>
+<tr>
+<td>4-6</td>
+<td>–3 Glory</td>
+</tr>
+<tr>
+<td>7-9</td>
+<td>–2 Glory</td>
+</tr>
+<tr>
+<td>10 or more</td>
+<td>No effect</td>
+</tr>
+</tbody>
+</table>
+<h3 id="clean-up-phase">Clean-Up Phase<a class="headerlink" href="#clean-up-phase" title="Permanent link">🔗&#xFE0E;</a></h3>
+<ol>
+<li>Flip all face-down cards in the CURRENT TREATIES Box face-up</li>
+<li>Flip the Napoleon's Luck marker, if used, to its unused side</li>
+<li>Reset Admin and Diplomacy markers to zero (Admin is <strong>not</strong> reset in the first year)</li>
+</ol>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">🔗&#xFE0E;</a></h2>
+<ul>
+<li><a href="https://gmtwebsiteassets.s3.us-west-2.amazonaws.com/INapoleon/I_Napoleon_Rules_Final_Hi-Res_WEB.pdf" target="_blank" rel="noopener">Rulebook</a></li>
+<li><a href="https://gmtwebsiteassets.s3.us-west-2.amazonaws.com/INapoleon/INapoleon_FAQ_Clarifications_8-15-24.pdf" target="_blank" rel="noopener">FAQ and Clarifications</a></li>
+</ul>
+<h2 id="interactions-on-bgg">Interactions on BGG<a class="headerlink" href="#interactions-on-bgg" title="Permanent link">🔗&#xFE0E;</a></h2>
+<p>Questions:</p>
+<ul>
+<li><a href="https://boardgamegeek.com/thread/3344399/russo-swedish-war-and-napoleons-luck" target="_blank" rel="noopener">Napoleon's Luck</a></li>
+<li><a href="https://boardgamegeek.com/thread/3344393/in-the-event-of-josephine-de-beauharnais-death" target="_blank" rel="noopener">Josephine De Beauharnais' Death</a></li>
+<li><a href="https://boardgamegeek.com/thread/3341845/fcd-potential-campaigns-change-in-diplomatic-statu" target="_blank" rel="noopener">FCD Potential Campaigns</a></li>
+</ul>
+<p>General:</p>
+<ul>
+<li><a href="https://boardgamegeek.com/thread/3353205/playbook-digital-copy" target="_blank" rel="noopener">Playbook Digital Copy</a></li>
+<li><a href="https://boardgamegeek.com/thread/3355131/rulebook-147-natural-frontiers-typo" target="_blank" rel="noopener">Rulebook 14.7 Natural Frontiers - Typo</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../../05/15/advanced-rag/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Advanced RAG">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Advanced RAG
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../11/30/getting-started-with-google-ai-studio/" class="md-footer__link md-footer__link--next" aria-label="Next: Getting Started with Google AI Studio">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Getting Started with Google AI Studio
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs Insiders
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://x.com/tlofreso" target="_blank" rel="noopener" title="x.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9zm-24.8 373.8h39.1L151.1 88h-42z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/tlofreso" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "content.footnote.tooltips", "navigation.footer", "navigation.instant", "navigation.sections", "navigation.instant.progress", "navigation.instant.prefetch"], "search": "../../../../assets/javascripts/workers/search.ad38c271.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.1a6dba85.min.js"></script>
+      
+    
+  </body>
+</html>

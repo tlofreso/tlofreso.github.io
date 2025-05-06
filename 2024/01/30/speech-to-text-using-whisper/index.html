@@ -1,0 +1,1330 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="My Blog Site">
+      
+      
+        <meta name="author" content="Tony Lofreso">
+      
+      
+        <link rel="canonical" href="https://tlofreso.github.io/2024/01/30/speech-to-text-using-whisper/">
+      
+      
+        <link rel="prev" href="../../06/people-i-follow/">
+      
+      
+        <link rel="next" href="../../../03/15/my-plans-for-the-2024-solar-eclipse/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12+insiders-4.53.16">
+    
+    
+      
+        <title>Speech to Text using Whisper - Tony's Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ff49f96f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#speech-to-text-using-whisper" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Tony&#39;s Blog" class="md-header__button md-logo" aria-label="Tony's Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tony's Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Speech to Text using Whisper
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tlofreso/tlofreso.github.io" title="Go to repository" class="md-source" data-md-component="source" target="_blank" rel="noopener">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Tony&#39;s Blog" class="md-nav__button md-logo" aria-label="Tony's Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Tony's Blog
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tlofreso/tlofreso.github.io" title="Go to repository" class="md-source" data-md-component="source" target="_blank" rel="noopener">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Categories
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Categories
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/boardgames/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boardgames
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/genai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GenAI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/home-lab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home Lab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/home-media/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home Media
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/space/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Space
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tech-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tech Stack
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tech Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dropbox-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dropbox App
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openai-whisper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAI Whisper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enhancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enhancing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enhancing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-support-for-larger-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding Support for Larger Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-gpt-4-for-meeting-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use GPT-4 for meeting minutes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../.." class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="/assets/profile-small.png" alt="Tony Lofreso">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          Tony Lofreso
+                        
+                      </strong>
+                      <br>
+                      Network Engineer
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2024-01-30 00:00:00+00:00" class="md-ellipsis">January 30, 2024</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/genai/">GenAI</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              5 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+
+  
+  
+
+
+<h1 id="speech-to-text-using-whisper">Speech to Text using Whisper<a class="headerlink" href="#speech-to-text-using-whisper" title="Permanent link">🔗&#xFE0E;</a></h1>
+<p>This year, I've had fun finding ways to use OpenAI tooling in everyday life. For most folks, this means interacting with ChatGPT through the app, or in a web browser at <a href="https://chat.openai.com" target="_blank" rel="noopener">https://chat.openai.com</a>. For me, it's been learning how to effectively use the tools programmatically. One of those tools, is  <a href="https://openai.com/research/whisper" target="_blank" rel="noopener">Whisper</a>. <!-- more --> Whisper will take an audio file (up to 25MB) and transcribe the audio into text. Contained here, is how I use Whisper, with other tooling, to convert voice memos I've recorded in iOS to text, then subsequently summarize the text into meeting minutes.</p>
+<h2 id="tech-stack">Tech Stack<a class="headerlink" href="#tech-stack" title="Permanent link">🔗&#xFE0E;</a></h2>
+<p>For this workflow, I use Dropbox as short-term storage, GitHub actions to run all the tasks, and Open AI's Whisper / GPT-4 models to do the actual work. The sequence of events looks something like this <em>(click for larger image)</em>:  </p>
+<p><a href="../../../../assets/posts/speech-to-text/diagram-dark.svg#only-dark"><img alt="Sequence Diagram Dark" src="../../../../assets/posts/speech-to-text/diagram-dark.svg#only-dark" /></a></p>
+<p><a href="../../../../assets/posts/speech-to-text/diagram-light.svg#only-light"><img alt="Sequence Diagram" src="../../../../assets/posts/speech-to-text/diagram-light.svg#only-light" /></a></p>
+<details class="note">
+<summary>Mermaid diagram code</summary>
+<div class="highlight"><pre><span></span><code>sequenceDiagram
+    participant VoiceMemos as Record a Voice Memo
+    participant Dropbox as Dropbox
+    participant GitHubAction as GitHub Action
+    participant Whisper as Whisper
+    participant GPT4 as GPT-4
+    VoiceMemos-&gt;&gt;Dropbox: Share audio to Dropbox
+    Dropbox-&gt;&gt;GitHubAction: Download audio
+    activate GitHubAction
+    GitHubAction-&gt;&gt;Whisper: Transcribe audio using Whisper
+    activate Whisper
+    Whisper--&gt;&gt;GitHubAction: Return transcript
+    deactivate Whisper
+    GitHubAction-&gt;&gt;GPT4: Create meeting minutes from transcript
+    activate GPT4
+    GPT4--&gt;&gt;GitHubAction: Return meeting minutes
+    deactivate GPT4
+    GitHubAction--&gt;&gt;Dropbox: Upload meeting minutes
+    deactivate GitHubAction
+</code></pre></div>
+</details>
+<h3 id="dropbox-app">Dropbox App<a class="headerlink" href="#dropbox-app" title="Permanent link">🔗&#xFE0E;</a></h3>
+<p>For long-lived Dropbox API interactions, you'll need a Dropbox App. A bit much for my use case... I wish there were an easier way to interact with Dropbox programmatically, but if you want to use the API, you need oauth, and you get oauth by having an app_key/app_secret pair. At a very high level, here are the steps:</p>
+<ol>
+<li>Create an app using the <a href="https://www.dropbox.com/developers/apps" target="_blank" rel="noopener">App Console</a></li>
+<li>
+<p>Retrieve the App key and App secret in your Dropbox app's settings, and use the app key to create an Authorization URL:<br />
+<div class="highlight"><pre><span></span><code>https://www.dropbox.com/oauth2/authorize?client_id=&lt;APP_KEY&gt;&amp;token_access_type=offline&amp;response_type=code
+</code></pre></div></p>
+</li>
+<li>
+<p>Complete the auth-z flow by browsing to the Authorization URL. You'll receive an <code>authorization_code</code> at the end.</p>
+</li>
+<li>Make a <code>POST</code> call to <code>https://api.dropboxapi.com/oauth2/token</code> with the appropriate parameters: <code>APP_KEY</code>, <code>APP_SECRET</code>, <code>AUTHORIZATION_CODE</code>
+<div class="highlight"><pre><span></span><code><span class="nv">BASIC_AUTH</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;&lt;APP_KEY&gt;:&lt;APP_SECRET&gt;&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="k">)</span><span class="w"> </span><span class="c1"># Encode username:password</span>
+curl<span class="w"> </span>--location<span class="w"> </span>--request<span class="w"> </span>POST<span class="w"> </span><span class="s1">&#39;https://api.dropboxapi.com/oauth2/token&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--header<span class="w"> </span><span class="s1">&#39;Authorization: Basic $BASIC_AUTH&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--header<span class="w"> </span><span class="s1">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--data-urlencode<span class="w"> </span><span class="s1">&#39;code=&lt;AUTHORIZATION_CODE&gt;&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--data-urlencode<span class="w"> </span><span class="s1">&#39;grant_type=authorization_code&#39;</span>
+</code></pre></div>
+The response for this call will include a <code>refresh_token</code> ...
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;access_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sl.***&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;token_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bearer&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;expires_in&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14400</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;***&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;scope&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;SCOPES&gt;&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;uid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;***&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;***&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+Use the refresh token in your code. The Dropbox <a href="https://github.com/dropbox/dropbox-sdk-python" target="_blank" rel="noopener">Python SDK</a> has support for this:
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">dropbox</span>
+
+<span class="n">dropbox_client</span> <span class="o">=</span> <span class="n">dropbox</span><span class="o">.</span><span class="n">Dropbox</span><span class="p">(</span>
+  <span class="n">app_key</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;dropbox_app_key&#39;</span><span class="p">],</span>
+  <span class="n">app_secret</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;dropbox_app_secret&#39;</span><span class="p">],</span>
+  <span class="n">oauth2_refresh_token</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;dropbox_refresh_token&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div></li>
+</ol>
+<p>Here are some links I found helpful while creating my app:</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/70641660/how-do-you-get-and-use-a-refresh-token-for-the-dropbox-api-python-3-x" target="_blank" rel="noopener">Handy oauth post</a></li>
+<li><a href="https://www.dropboxforum.com/t5/Dropbox-API-Support-Feedback/Oauth2-refresh-token-question-what-happens-when-the-refresh/td-p/486241" target="_blank" rel="noopener">also useful</a></li>
+<li><a href="https://dropbox.tech/developers/generate-an-access-token-for-your-own-account" target="_blank" rel="noopener">getting a token</a></li>
+</ul>
+<h3 id="openai-whisper">OpenAI Whisper<a class="headerlink" href="#openai-whisper" title="Permanent link">🔗&#xFE0E;</a></h3>
+<p>OpenAI's documentation is pretty great.</p>
+<ul>
+<li>Here are the docs for the endpoint I'm using <a href="https://platform.openai.com/docs/api-reference/audio/createTranscription" target="_blank" rel="noopener">Create transcription</a>.</li>
+<li>Here's a more in-depth example of how to use the endpoint: <a href="https://platform.openai.com/docs/guides/speech-to-text" target="_blank" rel="noopener">Speech to text</a></li>
+</ul>
+<p>This is my code</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">openai</span><span class="w"> </span><span class="kn">import</span> <span class="n">OpenAI</span>
+
+<span class="n">openai_client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">transcribe_audio</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting transcribe...&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">transcript</span> <span class="o">=</span> <span class="n">openai_client</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">transcriptions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;whisper-1&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">file</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">transcript</span><span class="o">.</span><span class="n">text</span>
+</code></pre></div>
+<h3 id="github-actions">GitHub Actions<a class="headerlink" href="#github-actions" title="Permanent link">🔗&#xFE0E;</a></h3>
+<p>I like GitHub quite a bit. Public repos get access to some great tooling like <a href="https://github.blog/2023-01-12-a-smarter-quieter-dependabot/" target="_blank" rel="noopener">Dependabot</a>, and up to 2,000 minutes / month for GitHub Action Runners. I have a goal this year to use GitHub Actions more.</p>
+<p>The action below runs on demand (with <code>worflow_dispatch</code>) or every day at 5PM <em><code>schedule</code> uses <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule" target="_blank" rel="noopener">UTC time</a></em>. The <a href="https://github.com/marketplace/actions/setup-python" target="_blank" rel="noopener"><code>setup-python</code></a> action is pretty slick as it takes advantage of GitHub's <a href="https://github.com/actions/setup-python/blob/main/docs/advanced-usage.md#hosted-tool-cache" target="_blank" rel="noopener">Hosted tool cache</a> feature. This improves the total runtime of your jobs by caching the full dev environment instead of downloading/installing for each run.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Speech to Text Runner</span>
+<span class="nt">run-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Transcribe audio file to text</span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">schedule</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;0</span><span class="nv"> </span><span class="s">22</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*&#39;</span>
+<span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span>
+<span class="nt">env</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">DROPBOX_APP_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DROPBOX_APP_KEY }}</span>
+<span class="w">  </span><span class="nt">DROPBOX_APP_SECRET</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DROPBOX_APP_SECRET }}</span>
+<span class="w">  </span><span class="nt">DROPBOX_REFRESH_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DROPBOX_REFRESH_TOKEN }}</span>
+<span class="w">  </span><span class="nt">OPENAI_API_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.OPENAI_API_KEY }}</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Audio-Transcriber</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup Python</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v5</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.11&#39;</span>
+<span class="w">          </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;pip&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -r requirements.txt</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run Main</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python main.py</span>
+</code></pre></div>
+<h2 id="enhancing">Enhancing<a class="headerlink" href="#enhancing" title="Permanent link">🔗&#xFE0E;</a></h2>
+<p>I quickly realized that support for larger audio files was going to be important for my use case. I also wanted to try GPT-4's hand at generating meeting notes for the transcripts.</p>
+<h3 id="adding-support-for-larger-files">Adding Support for Larger Files<a class="headerlink" href="#adding-support-for-larger-files" title="Permanent link">🔗&#xFE0E;</a></h3>
+<p class="annotate">By default, Whisper supports files up to 25MB in size. I've found that 40 minutes is a good cutoff to stay under this limit when using the voice memos app in iOS. OpenAI has some guidance for <a href="https://platform.openai.com/docs/guides/speech-to-text/longer-inputs" target="_blank" rel="noopener">Longer inputs</a>. They recommend <a href="https://github.com/jiaaro/pydub" target="_blank" rel="noopener">PyDub</a> to chunk the audio.(1) They also recommend <a href="https://platform.openai.com/docs/guides/speech-to-text/prompting" target="_blank" rel="noopener">Prompting</a> Whisper:</p>
+<ol>
+<li>ffmpeg is a dependency for PyDub</li>
+</ol>
+<blockquote>
+<p>To preserve the context of a file that was split into segments, you can prompt the model with the transcript of the preceding segment.</p>
+</blockquote>
+<p>Here's what I added for larger file support</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pydub</span><span class="w"> </span><span class="kn">import</span> <span class="n">AudioSegment</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydub.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_chunks</span>
+
+<span class="c1"># Takes a chunk duration in minutes, and a file as arguments.</span>
+<span class="c1"># Saves chunks to the working directory, and returns a list of filenames.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">chunk_audio</span><span class="p">(</span><span class="n">chunk_mins</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chunking audio...&quot;</span><span class="p">)</span>
+
+    <span class="n">chunks_out</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">audio</span> <span class="o">=</span> <span class="n">AudioSegment</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">chunk_size</span> <span class="o">=</span> <span class="n">chunk_mins</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">1000</span>
+    <span class="n">chunks</span> <span class="o">=</span> <span class="n">make_chunks</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">chunk_size</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chunks</span><span class="p">):</span>
+        <span class="n">audio_out</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">.mp3&#39;</span>
+        <span class="n">chunk</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="n">audio_out</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;mp3&#39;</span><span class="p">)</span>
+        <span class="n">chunks_out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">audio_out</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chunked into </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">chunks_out</span><span class="p">)</span><span class="si">}</span><span class="s2"> files...&quot;</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">chunks_out</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">audio_files</span><span class="p">:</span>
+
+        <span class="n">chunks</span> <span class="o">=</span> <span class="n">chunk_audio</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+        <span class="n">transcripts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Transcribe chunks with preceding chunk transcript as a prompt</span>
+        <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">chunks</span><span class="p">:</span>
+            <span class="n">transcript</span> <span class="o">=</span> <span class="n">transcribe_audio</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">chunk</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">transcripts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">transcripts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">transcript</span><span class="p">)</span>
+</code></pre></div>
+<p>I also had to update my runner to install ffmpeg with <a href="https://github.com/marketplace/actions/setup-ffmpeg" target="_blank" rel="noopener">this</a>. Now the steps are:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout</span>
+<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup ffmpeg</span>
+<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FedericoCarboni/setup-ffmpeg@v3</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup Python</span>
+<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v5</span>
+</code></pre></div>
+<h3 id="use-gpt-4-for-meeting-minutes">Use GPT-4 for meeting minutes<a class="headerlink" href="#use-gpt-4-for-meeting-minutes" title="Permanent link">🔗&#xFE0E;</a></h3>
+<p>Now that we have the full text for audio files of any size, we can use GPT-4 to summarize the content. Doing so was remarkably trivial. I followed <a href="https://platform.openai.com/docs/tutorials/meeting-minutes" target="_blank" rel="noopener">this tutorial</a> <a href="https://github.com/tlofreso/speech-to-text/blob/main/meeting_notes.py" target="_blank" rel="noopener">almost verbatim</a>, and added three lines of Python to <code>main.py</code></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">meeting_notes</span><span class="w"> </span><span class="kn">import</span> <span class="n">meeting_minutes</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_txt</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">full_transcript</span><span class="p">:</span>
+     <span class="n">notes</span> <span class="o">=</span> <span class="n">meeting_minutes</span><span class="p">(</span><span class="n">full_transcript</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div>
+<h2 id="cost">Cost<a class="headerlink" href="#cost" title="Permanent link">🔗&#xFE0E;</a></h2>
+<p>My use of Dropbox and GitHub fall well within the free tiers. The spend in ChatGPT is quite low for what you get. Especially when you consider the sheer compute it takes to do the job: Transcribe, then Summarize. Here's where my January bill stands:</p>
+<ul>
+<li>26,600 transcribed seconds: $2.90</li>
+<li>274,600 tokens: $3.00</li>
+</ul>
+<p>Something else you'll quickly hit when using the APIs for anything other than trivial tasks, is <a href="https://platform.openai.com/docs/guides/rate-limits/usage-tiers?context=tier-free" target="_blank" rel="noopener">Usage limits</a>. Luckily, the ceiling for Tier 2 is quite high, and you can simply purchase $50 in API credits to unlock it.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../06/people-i-follow/" class="md-footer__link md-footer__link--prev" aria-label="Previous: People I Follow">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                People I Follow
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../03/15/my-plans-for-the-2024-solar-eclipse/" class="md-footer__link md-footer__link--next" aria-label="Next: My Plans for the 2024 Solar Eclipse">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                My Plans for the 2024 Solar Eclipse
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs Insiders
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://x.com/tlofreso" target="_blank" rel="noopener" title="x.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9zm-24.8 373.8h39.1L151.1 88h-42z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/tlofreso" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "content.footnote.tooltips", "navigation.footer", "navigation.instant", "navigation.sections", "navigation.instant.progress", "navigation.instant.prefetch"], "search": "../../../../assets/javascripts/workers/search.ad38c271.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.1a6dba85.min.js"></script>
+      
+    
+  </body>
+</html>
