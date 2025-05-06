@@ -107,7 +107,7 @@ Simon is developer behind [Django](https://www.djangoproject.com), [Datasette](h
 
 [:fontawesome-brands-x-twitter:](https://twitter.com/simonw){:target="blank"} - 
 [:material-github:](https://github.com/simonw){:target="blank"} - 
-[:material-web:](https://simonwillison.net/){:target="blank"} - 
+[:material-web:](https://simonwillison.net/){:target="blank"}
 
 ??? note "Topics Simon covers"
 
