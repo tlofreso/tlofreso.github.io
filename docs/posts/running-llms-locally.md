@@ -71,4 +71,4 @@ The models I chose are from the Gemma3 and Qwen3 families. I chose them due to t
  - Simon on [Qwen3](https://simonwillison.net/2025/Apr/29/qwen-3/)
 
 ## Credits
-I referenced two personalities in this post that I've wrote about before. [Simon Willison](../people-i-follow.md/#simon-willison) and [Corey Schafer](../people-i-follow.md/#corey-schafer). Just wanted to highlight here that they continue to be a steadfast source of great information.
+I referenced two personalities in this post that I've wrote about before. [Simon Willison](./people-i-follow.md/#simon-willison) and [Corey Schafer](./people-i-follow.md/#corey-schafer). Just wanted to highlight here that they continue to be a steadfast source of great information.

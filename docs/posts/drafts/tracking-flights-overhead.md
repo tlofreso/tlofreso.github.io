@@ -198,4 +198,4 @@ Piaware config settings in /etc/piaware.conf: https://www.flightaware.com/adsb/p
 
 
 
-[^1]: In the US, aircraft may transmit in 
+_future footnote_: In the US, aircraft may transmit in 

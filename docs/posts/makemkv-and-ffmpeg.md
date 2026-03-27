@@ -8,7 +8,7 @@ categories:
 ---
 
 # MakeMKV and FFmpeg
-All of the physical media I own gets backed up to a [NAS](./home-network.md/#NAS) which is also a media server running [Jellyfin](https://jellyfin.org/). Recently, I [upgraded](https://www.amazon.com/dp/B08KQBYM1Y?ref=ppx_yo2ov_dt_b_fed_asin_title) my version of The Lord of the Rings. Here are some of my notes on ripping that media, and how I used FFmpeg to combine the multi-part films.<!-- more -->
+All of the physical media I own gets backed up to a [NAS](./home-network.md/#nas) which is also a media server running [Jellyfin](https://jellyfin.org/). Recently, I [upgraded](https://www.amazon.com/dp/B08KQBYM1Y?ref=ppx_yo2ov_dt_b_fed_asin_title) my version of The Lord of the Rings. Here are some of my notes on ripping that media, and how I used FFmpeg to combine the multi-part films.<!-- more -->
 
 ## The Hardware and Software
 The landscape for ripping Bluray media is a bear to navigate. It's a constant game of cat & mouse knowing which drives are compatible, and what for... Especially in regards to UHD media. The MakeMKV forums are the best source I've found for help. Here's the latest from them: [Flashing Guide Updated 2025](https://forum.makemkv.com/forum/viewtopic.php?t=19634).
