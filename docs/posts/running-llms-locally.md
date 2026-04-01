@@ -66,7 +66,7 @@ The models I chose are from the Gemma3 and Qwen3 families. I chose them due to t
 ## Links
  - MLX on Hugging Face: [MLX Community](https://huggingface.co/mlx-community)
  - Gemma3 Family [Models](https://ai.google.dev/gemma)
- - Quen3 Family [Models](https://qwenlm.github.io/blog/qwen3/)
+ - Qwen3 Family [Models](https://qwenlm.github.io/blog/qwen3/)
  - Simon on Gemma3: [Gemma3 QAT Models](https://simonwillison.net/2025/Apr/19/gemma-3-qat-models/)
  - Simon on [Qwen3](https://simonwillison.net/2025/Apr/29/qwen-3/)
 
