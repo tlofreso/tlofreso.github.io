@@ -1,0 +1,113 @@
+[project]
+site_name = "Tony's Blog"
+site_url = "https://tlofreso.github.io"
+site_author = "Tony Lofreso"
+site_description = "My Blog Site"
+repo_url = "https://github.com/tlofreso/tlofreso.github.io"
+
+nav = [
+  { "Blog" = ["index.md"] },
+]
+
+# ---------------------------------------------------------------------------
+# Theme
+# ---------------------------------------------------------------------------
+
+[project.theme]
+variant = "classic"
+features = [
+  "content.code.copy",
+  "content.footnote.tooltips",
+  "navigation.footer",
+  "navigation.instant",
+  "navigation.instant.prefetch",
+  "navigation.instant.progress",
+  "navigation.sections",
+]
+
+# Automatic mode
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+toggle.icon = "material/brightness-auto"
+toggle.name = "Switch to light mode"
+
+# Light mode
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+toggle.icon = "material/brightness-7"
+toggle.name = "Switch to dark mode"
+
+# Dark mode
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "black"
+toggle.icon = "material/brightness-4"
+toggle.name = "Switch to system preference"
+
+# ---------------------------------------------------------------------------
+# Plugins
+# ---------------------------------------------------------------------------
+
+[project.plugins.search]
+
+[project.plugins.privacy]
+links_attr_map = { target = "_blank" }
+
+[project.plugins.blog]
+blog_dir = "."
+draft = false
+draft_on_serve = true
+post_date_format = "long"
+post_url_date_format = "yyyy/MM/dd"
+categories_allowed = [
+  "Home Automation",
+  "Home Lab",
+  "Maker",
+  "Boardgames",
+  "Linux",
+  "GenAI",
+  "Space",
+  "Radio",
+  "Home Media",
+  "Python",
+  "Recreation",
+  "3D Printing",
+]
+
+# ---------------------------------------------------------------------------
+# Markdown extensions
+# ---------------------------------------------------------------------------
+
+[project.markdown_extensions]
+attr_list = {}
+footnotes = {}
+md_in_html = {}
+admonition = {}
+"pymdownx.details" = {}
+"pymdownx.caret" = {}
+"pymdownx.tilde" = {}
+"pymdownx.tabbed" = { alternate_style = true }
+toc = { permalink = "🔗&#xFE0E;" }
+
+[project.markdown_extensions."pymdownx.emoji"]
+emoji_index = "zensical.extensions.emoji.twemoji"
+emoji_generator = "zensical.extensions.emoji.to_svg"
+
+[project.markdown_extensions."pymdownx.superfences"]
+custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
+
+# ---------------------------------------------------------------------------
+# Extra
+# ---------------------------------------------------------------------------
+
+[[project.extra.social]]
+icon = "fontawesome/brands/x-twitter"
+link = "https://x.com/tlofreso"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/tlofreso"

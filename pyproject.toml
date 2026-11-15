@@ -1,0 +1,7 @@
+[project]
+name = "tlofreso-blog"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "zensical>=0.1.1",
+]
