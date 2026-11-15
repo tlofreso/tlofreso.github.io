@@ -13,6 +13,9 @@ Over the weekend, I decided to have Fable try its hand at creating STL files for
 
 <!-- more -->
 
-So I decided to give Anthropic's greatest new model a go. Here's the [repo](https://github.com/tlofreso/red-dust-rebellion_player-trays/tree/main). The `README` was my prompt. I'm quite happy with the results.
+So I decided to give Anthropic's greatest new model a go. Here's the [repo](https://github.com/tlofreso/red-dust-rebellion_player-trays/tree/main). The `README` was my prompt. I'm quite happy with the results. A couple things that surprised me:
+
+ - Fable asked if I store the game upright, or flat. When I said upright, it decided lids were a requirement.
+ - Giving Fable the rulebook ended up being a great idea. It figured out how many components each of the asymmetric factions has, and needed very little direction from me on what each player tray would need.
 
 ![finished-product](../assets/posts/fable-and-3d-printing/finished-product.jpeg)
