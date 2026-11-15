@@ -72,6 +72,8 @@ plugins:
         - Radio
         - Home Media
         - Python
+        - Recreation
+        - 3D Printing
 
 nav:
   - Blog:
