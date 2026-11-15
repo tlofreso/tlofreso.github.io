@@ -13,6 +13,6 @@ Over the weekend, I decided to have Fable try its hand at creating STL files for
 
 <!-- more -->
 
-So I decided to give Anthropic's greatest new model a go. Here's the [repo](https://github.com/tlofreso/red-dust-rebellion_player-trays/tree/main); the `README` was my prompt. I'm incredibly happy with the results.
+So I decided to give Anthropic's greatest new model a go. Here's the [repo](https://github.com/tlofreso/red-dust-rebellion_player-trays/tree/main). The `README` was my prompt. I'm quite happy with the results.
 
 ![finished-product](../assets/posts/fable-and-3d-printing/finished-product.jpeg)
